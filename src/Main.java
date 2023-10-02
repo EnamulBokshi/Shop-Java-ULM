@@ -1,5 +1,9 @@
 import java.util.*;
 public class Main {
+    public static ArrayList<Items> item = new ArrayList<>();
+    public static ArrayList<Customer> customer = new ArrayList<>();
+    int customerCount = 0;
+    int itemsCount = 0;
     public static void main(String[] args) {
         Scanner  sc = new Scanner(System.in);
         System.out.println("Wanna buy an item (1/0)?");
@@ -8,13 +12,15 @@ public class Main {
             System.out.println("Customer details: ");
             System.out.println("----------------------------------------");
             Main obj = new Main();
-            Customer customer =  obj.setCustomer();
-            Items item = obj.setItems();
+            obj.setCustomer();
+            obj.setItems();
+            obj.setCustomer();
+            obj.setItems();
             Shop andromeda = new Shop("andromeda","Arshinagar",item,customer);
             andromeda.display();
         }
     }
-    public Items setItems(){
+    public void setItems(){
         Scanner  sc = new Scanner(System.in);
         String name;
         String id;
@@ -25,10 +31,10 @@ public class Main {
         id = sc.nextLine();
         System.out.println("Quantity: ");
         quantity = sc.nextInt();
-        Items item = new Items(name,id,quantity);
-        return item;
+        item.add(new Items(name,id,quantity));
+        itemsCount ++;
     }
-    public Customer setCustomer(){
+    public void setCustomer(){
         Scanner  sc = new Scanner(System.in);
         String name;
         String phoneNum;
@@ -42,7 +48,7 @@ public class Main {
         gender = sc.nextLine();
         System.out.println("Customer Id: ");
         id = sc.nextInt();
-        Customer customer = new Customer(name,phoneNum, gender,id);
-        return customer;
+        customer.add(new Customer(name,phoneNum,gender,id));
+        customerCount ++;
     }
 }

@@ -1,10 +1,12 @@
+import java.util.ArrayList;
 public class Shop {
     String name;
     String location;
-    Items item;
-    Customer customer;
 
-    Shop(String name,String location,Items item,Customer customer){
+   ArrayList<Items> item;
+   ArrayList<Customer> customer;
+
+    Shop(String name,String location,ArrayList <Items> item,ArrayList<Customer>customer){
         this.name = name;
         this.location = location;
         this.item = item;
@@ -15,12 +17,16 @@ public class Shop {
         System.out.println("Shop location"+ location);
         System.out.println("Items Details: ");
         System.out.println("======================= ");
-
-        item.display();
+        for (Items item: item
+        ) {
+            item.display();
+        }
         System.out.println("Customer Details:");
         System.out.println("=======================");
-        customer.display();
-
+        for (Customer customer: customer
+        ) {
+            customer.display();
+        }
 
     }
 }
